@@ -37,6 +37,8 @@ fn _cocoindex_rs(m: &Bound<'_, PyModule>) -> PyResult<()> {
     m.add("__version__", env!("CARGO_PKG_VERSION"))?;
     // Expose fork indicator so I can tell which build I'm running
     m.add("__fork__", "personal")?;
+    // Track my own build date so I know how stale my local build is
+    m.add("__build_date__", env!("CARGO_PKG_VERSION"))?; // TODO: replace with actual build timestamp
 
     Ok(())
 }
