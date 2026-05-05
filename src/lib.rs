@@ -2,6 +2,9 @@
 //!
 //! This crate provides the core Rust implementation for cocoindex,
 //! exposing Python bindings via PyO3.
+//!
+//! Personal fork: using this to experiment with custom indexing pipelines
+//! for my document processing project.
 
 use pyo3::prelude::*;
 
@@ -32,6 +35,8 @@ fn _cocoindex_rs(m: &Bound<'_, PyModule>) -> PyResult<()> {
 
     // Register version info
     m.add("__version__", env!("CARGO_PKG_VERSION"))?;
+    // Expose fork indicator so I can tell which build I'm running
+    m.add("__fork__", "personal")?;
 
     Ok(())
 }
