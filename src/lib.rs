@@ -41,5 +41,9 @@ fn _cocoindex_rs(m: &Bound<'_, PyModule>) -> PyResult<()> {
     // For now just using the package version as a placeholder
     m.add("__build_date__", "unknown")?;
 
+    // Handy for debugging: lets me quickly check in Python which fork is loaded
+    // e.g. assert cocoindex._cocoindex_rs.__fork_repo__ == "my-username/cocoindex"
+    m.add("__fork_repo__", "my-username/cocoindex")?;
+
     Ok(())
 }
