@@ -52,3 +52,9 @@ default = []
 opt-level = 3
 lto = true
 codegen-units = 1
+panic = "abort"  # slightly smaller binary size, good enough for my local use
+
+[profile.dev]
+# faster incremental builds during local experimentation
+opt-level = 0
+debug = true
