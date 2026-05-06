@@ -30,6 +30,7 @@ tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 
 # Database connectivity
+# note: I only use postgres locally, but keeping sqlite in case I want to test offline
 sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "postgres", "sqlite", "json", "uuid", "chrono"] }
 
 # UUID support
@@ -59,3 +60,4 @@ panic = "abort"  # slightly smaller binary size, good enough for my local use
 opt-level = 0
 debug = true
 debug-assertions = true  # keep assertions on during dev so I catch bugs early
+incremental = true  # explicitly enable incremental compilation to speed up rebuilds
