@@ -52,7 +52,9 @@ fn _cocoindex_rs(m: &Bound<'_, PyModule>) -> PyResult<()> {
     // Expose the default batch size I use for my document pipelines.
     // Upstream hardcodes this internally; surfacing it here makes it easier
     // to reference from Python without digging through the Rust source.
-    m.add("DEFAULT_BATCH_SIZE", 64usize)?;
+    // Bumped from 64 -> 128 after profiling showed my GPU stays underutilized
+    // at 64; larger batches keep it fed without OOMing on my 24GB card.
+    m.add("DEFAULT_BATCH_SIZE", 128usize)?;
 
     Ok(())
 }
