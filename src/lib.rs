@@ -49,5 +49,10 @@ fn _cocoindex_rs(m: &Bound<'_, PyModule>) -> PyResult<()> {
     // upstream repo URL handy so I know where to pull fixes from
     m.add("__upstream_repo__", "https://github.com/cocoindex-io/cocoindex")?;
 
+    // Expose the default batch size I use for my document pipelines.
+    // Upstream hardcodes this internally; surfacing it here makes it easier
+    // to reference from Python without digging through the Rust source.
+    m.add("DEFAULT_BATCH_SIZE", 64usize)?;
+
     Ok(())
 }
