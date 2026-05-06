@@ -45,5 +45,9 @@ fn _cocoindex_rs(m: &Bound<'_, PyModule>) -> PyResult<()> {
     // e.g. assert cocoindex._cocoindex_rs.__fork_repo__ == "my-username/cocoindex"
     m.add("__fork_repo__", "my-username/cocoindex")?;
 
+    // NOTE: upstream doesn't expose this, but I find it useful to have the
+    // upstream repo URL handy so I know where to pull fixes from
+    m.add("__upstream_repo__", "https://github.com/cocoindex-io/cocoindex")?;
+
     Ok(())
 }
