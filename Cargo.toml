@@ -61,6 +61,7 @@ opt-level = 0
 debug = true
 debug-assertions = true  # keep assertions on during dev so I catch bugs early
 incremental = true  # explicitly enable incremental compilation to speed up rebuilds
+split-debuginfo = "unpacked"  # speeds up linking on macOS (my main dev machine)
 
 [profile.dev.package."*"]
 # compile dependencies with optimizations even in dev mode - makes a noticeable
