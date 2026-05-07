@@ -66,4 +66,5 @@ split-debuginfo = "unpacked"  # speeds up linking on macOS (my main dev machine)
 [profile.dev.package."*"]
 # compile dependencies with optimizations even in dev mode - makes a noticeable
 # difference when running tests locally since sqlx/tokio are slow unoptimized
-opt-level = 2
+# bumped from 2 -> 3 after noticing test runs were still sluggish on my M2
+opt-level = 3
