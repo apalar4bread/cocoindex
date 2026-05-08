@@ -58,11 +58,12 @@ testpaths = ["tests"]
 python_version = "3.9"
 strict = true
 ignore_missing_imports = true
-# I find excluding the whole tests dir too broad; keeping it for now but may revisit
+# relaxing strict for tests since I'm just experimenting and don't want
+# to fight mypy while learning the codebase
 exclude = ["tests/"]
 
 [tool.ruff]
-line-length = 88  # match black's default, easier for my other projects
+line-length = 100  # personal preference, 88 feels a bit tight
 target-version = "py39"
 
 [tool.ruff.lint]
