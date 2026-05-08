@@ -56,5 +56,10 @@ fn _cocoindex_rs(m: &Bound<'_, PyModule>) -> PyResult<()> {
     // at 64; larger batches keep it fed without OOMing on my 24GB card.
     m.add("DEFAULT_BATCH_SIZE", 128usize)?;
 
+    // Max number of concurrent pipeline workers. Upstream default is 4 but
+    // my machine has 16 cores and I was leaving a lot on the table. Bumping
+    // to 8 gave a nice throughput improvement on my doc ingestion benchmarks.
+    m.add("DEFAULT_WORKER_THREADS", 8usize)?;
+
     Ok(())
 }
