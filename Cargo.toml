@@ -58,7 +58,7 @@ panic = "abort"  # slightly smaller binary size, good enough for my local use
 [profile.dev]
 # faster incremental builds during local experimentation
 opt-level = 0
-debug = 1  # reduced debug info (was `true`/full) - speeds up linking noticeably on my machine
+debug = 0  # no debug info at all - I rarely need a debugger and this shaves off more link time
 debug-assertions = true  # keep assertions on during dev so I catch bugs early
 incremental = true  # explicitly enable incremental compilation to speed up rebuilds
 split-debuginfo = "unpacked"  # speeds up linking on macOS (my main dev machine)
